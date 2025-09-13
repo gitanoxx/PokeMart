@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poké Mart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="wrap">
+      <div class="panel">
+        <div class="content" aria-live="polite">
+          <section class="shop">
+            <header class="shop-header">
+              <div class="shop-title">
+                <img src="pokemart_transparent_pokemon_blue.png" alt="Poké Mart" class="logo">
+                <div>
+                  <div class="badge">Región: <strong> Hoenn</strong></div>
+                </div>
+              </div>
+              <div class="auth-wallet-container">
+                <div class="auth-buttons" id="auth-buttons">
+                  <button class="btn secondary" id="btnLogin">Iniciar sesión</button>
+                  <button class="btn" id="btnRegister">Crear cuenta</button>
+                </div>
+                <div class="wallet d-none" id="wallet">
+                  <span id="money">—</span> ₽
+                  <div class="actions">
+                    <button class="btn secondary" id="btnAdd">+50 ₽</button>
+                    <button class="btn" id="btnReset">Reiniciar</button>
+                  </div>
+                </div>
+                <div class="logout-btn-container d-none" id="logout-btn-container">
+                  <span id="currentUserSpan" class="me-2"></span>
+                  <button class="btn secondary" id="btnLogout">Cerrar sesión</button>
+                </div>
+              </div>
+            </header>
+
+            <div class="filter-controls">
+              <button class="btn secondary filter-btn active" data-filter="all">Todos</button>
+              <button class="btn secondary filter-btn" data-filter="Básico">Básico</button>
+              <button class="btn secondary filter-btn" data-filter="Mejorada">Mejorada</button>
+              <button class="btn secondary filter-btn" data-filter="Premium">Premium</button>
+              <button class="btn secondary filter-btn" data-filter="Curación">Curación</button>
+              <button class="btn secondary filter-btn" data-filter="Combate">Combate</button>
+              <button class="btn secondary filter-btn" data-filter="Raro">Raro</button>
+              <button class="btn secondary filter-btn" data-filter="Exploración">Exploración</button>
+            </div>
+
+            <div class="grid" id="items"></div>
+
+            <div class="cart" id="cart">
+              <h3>🧺 Mochila del entrenador</h3>
+              <div class="cart-list" id="cartList"></div>
+              <div class="cart-actions">
+                <button class="btn primary position-fixed bottom-0 end-0 mb-3 me-3 z-3 btn-lg px-4 py-3 fs-5" id="btnGoToCart">
+                  🛒
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="custom-toast" id="toast"><div class="bubble" id="toastBubble">—</div></div>
+
+  <!-- Botón de Contacto -->
+  <button class="btn primary position-fixed bottom-0 start-0 mb-3 ms-3 z-3 btn-lg px-4 py-3 fs-5" id="btnContact">
+    📞
+  </button>
+
+  <!-- Ventana Modal de Contacto -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: var(--parchment-1); border: none; box-shadow: var(--shadow);">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="contactModalLabel" style="color: #2b1d0d; font-weight: bold;">Contacto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="contact-info" style="color: #3b2b18;">
+            <p><strong>Equipo:</strong> BreakingTeam</p>
+            <p><strong>Teléfono:</strong> +56946498710</p>
+            <p><strong>Email:</strong> breakingteam@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script>
+    // Inicializar el modal de contacto
+    document.getElementById('btnContact').addEventListener('click', function() {
+      new bootstrap.Modal(document.getElementById('contactModal')).show();
+    });
+  </script>
+</body>
+</html>
